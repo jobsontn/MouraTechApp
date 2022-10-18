@@ -1,32 +1,28 @@
 import React from "react";
 
-import { Text, View, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+
 import InputWithIcon from "../components/InputWithIcon";
 
-
-function LoginScreen({ navigation }) {
+function RegisterScreen({ navigation }) {
     return (
         <View style={styles.App}>
             <View style={styles.Header}>
-                <Image style={styles.Logo} source={require("../img/logo.png")}/>
-                <Image style={styles.Title} source={require("../img/mouratech.png")}/>
+                <Image style={styles.Logo} source={require("../img/logo.png")} />
+                <Image style={styles.Title} source={require("../img/mouratech.png")} />
             </View>
             <View style={styles.Body}>
-                <Text style={styles.h2}>Entre com sua conta</Text>
+                <Text style={styles.h2}>Cadastre sua conta</Text>
+                <InputWithIcon icon="user" placeholder="Nome" type="default" password={false} />
                 <InputWithIcon icon="envelope" placeholder="E-mail" type="email-address" password={false} />
-                <InputWithIcon icon="lock" placeholder="Senha" type="default"  password={true}/>
-                <TouchableOpacity>
-                    <Text style={styles.link}>Esqueceu sua senha?</Text>
-                </TouchableOpacity>
+                <InputWithIcon icon="lock" placeholder="Senha" type="default" password={true} />
+                <InputWithIcon icon="lock" placeholder="Confirmar Senha" type="default" password={true} />
                 <TouchableOpacity style={styles.buttonOK}>
-                    <Text style={styles.buttonText}>Entrar</Text>
+                    <Text style={styles.buttonText}>Criar conta</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonGoogle}>
-                    <Text style={styles.buttonText}>Entrar com o google</Text>
-                </TouchableOpacity>
-                <Text style={styles.h3}>Não possui cadastro?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.buttonOKOutline}>
-                    <Text style={styles.buttonTextBlue}>Crie uma nova conta</Text>
+                <Text style={styles.h3}>Já possui conta?</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')}  style={styles.buttonOKOutline}>
+                    <Text style={styles.buttonTextBlue}>Entre com sua conta</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -126,4 +122,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LoginScreen;
+export default RegisterScreen;
